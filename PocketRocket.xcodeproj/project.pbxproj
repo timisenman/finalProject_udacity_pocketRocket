@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F86C440E2118030C00EF784E /* PastLaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C440D2118030C00EF784E /* PastLaunchesVC.swift */; };
+		F86C44102118035500EF784E /* PastLaunchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */; };
 		F8E31CFA21173DFB009FD4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */; };
 		F8E31CFC21173DFB009FD4D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E31CFB21173DFB009FD4D2 /* ViewController.swift */; };
 		F8E31CFF21173DFB009FD4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E31CFD21173DFB009FD4D2 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F86C440D2118030C00EF784E /* PastLaunchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchesVC.swift; sourceTree = "<group>"; };
+		F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchDetailsVC.swift; sourceTree = "<group>"; };
 		F8E31CF621173DFB009FD4D2 /* PocketRocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketRocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E31CFB21173DFB009FD4D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F86C44112118123600EF784E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8E31D0E21173E42009FD4D2 /* Client.swift */,
+				F8E31D1021174378009FD4D2 /* Constants.swift */,
+				F8E31D0021173DFB009FD4D2 /* PocketRocket.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F86C44132118124500EF784E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F8E31CFD21173DFB009FD4D2 /* Main.storyboard */,
+				F8E31D0321173DFD009FD4D2 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F86C44142118125100EF784E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8E31CFB21173DFB009FD4D2 /* ViewController.swift */,
+				F86C440D2118030C00EF784E /* PastLaunchesVC.swift */,
+				F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F8E31CED21173DFB009FD4D2 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +93,12 @@
 		F8E31CF821173DFB009FD4D2 /* PocketRocket */ = {
 			isa = PBXGroup;
 			children = (
+				F86C44112118123600EF784E /* Model */,
+				F86C44132118124500EF784E /* View */,
+				F86C44142118125100EF784E /* Controller */,
 				F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */,
-				F8E31CFB21173DFB009FD4D2 /* ViewController.swift */,
-				F8E31D0E21173E42009FD4D2 /* Client.swift */,
-				F8E31CFD21173DFB009FD4D2 /* Main.storyboard */,
-				F8E31D0321173DFD009FD4D2 /* Assets.xcassets */,
 				F8E31D0521173DFD009FD4D2 /* LaunchScreen.storyboard */,
 				F8E31D0821173DFD009FD4D2 /* Info.plist */,
-				F8E31D0021173DFB009FD4D2 /* PocketRocket.xcdatamodeld */,
-				F8E31D1021174378009FD4D2 /* Constants.swift */,
 			);
 			path = PocketRocket;
 			sourceTree = "<group>";
@@ -145,7 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E31D1121174378009FD4D2 /* Constants.swift in Sources */,
+				F86C440E2118030C00EF784E /* PastLaunchesVC.swift in Sources */,
 				F8E31D0221173DFB009FD4D2 /* PocketRocket.xcdatamodeld in Sources */,
+				F86C44102118035500EF784E /* PastLaunchDetailsVC.swift in Sources */,
 				F8E31CFC21173DFB009FD4D2 /* ViewController.swift in Sources */,
 				F8E31D0F21173E42009FD4D2 /* Client.swift in Sources */,
 				F8E31CFA21173DFB009FD4D2 /* AppDelegate.swift in Sources */,
