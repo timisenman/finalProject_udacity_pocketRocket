@@ -9,16 +9,18 @@
 import Foundation
 
 struct SpaceX {
-    static let scheme = "https:"
+    static let scheme = "https"
     static let host = "api.spacexdata.com"
-    static let nextPath = "v2/launches/next"
-    static let latestPath = "v2/launches/latest"
-    static let allLaunches = "v2/launches"
-    static let upcomingLaunches = "v2/launches/upcoming"
+    static let nextPath = "/v2/launches/next"
+    static let latestPath = "/v2/launches/latest"
+    static let allLaunches = "/v2/launches"
+    static let upcomingLaunches = "/v2/launches/upcoming"
+    static let queryItemStart = "start"
+    static let queryValueStartDate = "2018-01-01"
 }
 
 struct LaunchDetails {
-    static let dataUTC = "launch_date_utc"
+    static let dateUnix = "launch_date_unix"
     static let missionName = "mission_name"
     static let flightNumber = "flight_number"
     static let rocket = "rocket"
@@ -29,8 +31,6 @@ struct LaunchDetails {
     static let payloadType = "payload_type"
     static let launchSite = "launch_site"
     static let launchSiteName = "site_name_long"
-    
-    
 }
 
 

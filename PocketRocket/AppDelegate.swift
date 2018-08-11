@@ -13,10 +13,19 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let dataController = DataController(modelName: "PocketRocket")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        dataController.load()
+        
+        let tabBarController = window?.rootViewController as! UITabBarController
+        let tabBarRootViewControllers: Array = tabBarController.viewControllers!
+        let nextLaunchView = tabBarRootViewControllers[0] as! ViewController
+        
+        nextLaunchView.dataController = dataController
+        
         return true
     }
 
