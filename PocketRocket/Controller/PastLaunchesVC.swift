@@ -48,19 +48,14 @@ class PastLaunchesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath)
 
         let launch = savedLaunches[(indexPath as NSIndexPath).row]
-        cell.textLabel?.text = launch.missionName
+        
+        if let name = launch.missionName, let date = launch.launchDate {
+            cell.textLabel?.text = "\(name) - \(date)"
+        }
 
         return cell
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //TODO: Insert Segue to Details View Controller
 
 }

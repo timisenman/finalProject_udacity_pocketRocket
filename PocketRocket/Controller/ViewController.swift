@@ -34,32 +34,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fetchData()
         
-//        assignSavedData()
-        retrieveLaunches()
+        //TODO: Add some sort of check to see if LaunchDate is the same before downloading new
+        // Maybe do that in the retrieval task?
+        
         fetchData()
-//        Fix: This mostly works now.
-//        if savedNextLaunchDetails.isEmpty {
-//            assignSavedData()
-//            retrieveLaunches()
-//        } else {
-//            assignSavedData()
-//        }
-        
+        if let missName = savedNextLaunchDetails[0].missionName {
+            print(missName)
+        }
     }
-    
-//    func assignSavedData() {
-//        launchDate.text = savedNextLaunchDetails[0].launchDate
-//        missionName.text = savedNextLaunchDetails[0].missionName
-//        missionDetails.text = savedNextLaunchDetails[0].details
-//        launchSite.text = savedNextLaunchDetails[0].location
-//    }
     
     func fetchData() {
         let fetchRequest: NSFetchRequest<Launch> = Launch.fetchRequest()
-//        let predicate = NSPredicate(format: "launchDate > %@", String(describing: Date().timeIntervalSince1970))
-//        fetchRequest.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "launchDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         if let result = try? dataController.viewContext.fetch(fetchRequest) {
@@ -122,10 +108,8 @@ class ViewController: UIViewController {
             launch.details = "Rocket name: \(rocketName)\n"
             launch.location = launchSiteName
             launch.rocketName = rocketName
-//                self.savedNextLaunchDetails.append(launch)
-//                try? self.dataController.viewContext.save()
             
-//            Testing pure assignment of web request data
+//          Testing pure assignment of web request data
             DispatchQueue.main.async {
                 self.missionName.text = missionNameData
                 self.launchDate.text = self.dateFormatter(TimeInterval(launchDateData))
