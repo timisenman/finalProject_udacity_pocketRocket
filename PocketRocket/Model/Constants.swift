@@ -11,8 +11,8 @@ import Foundation
 struct SpaceX {
     static let scheme = "https"
     static let host = "api.spacexdata.com"
-    static let nextPath = "/v2/launches/next"
-    static let latestPath = "/v2/launches/latest"
+    static let nextLaunch = "/v2/launches/next"
+    static let latestLaunch = "/v2/launches/latest"
     static let allLaunches = "/v2/launches"
     static let upcomingLaunches = "/v2/launches/upcoming"
     static let queryItemStart = "start"

@@ -17,7 +17,7 @@ class PRClient: NSObject {
     }
     
     // Complete this later
-    func taskWithURL(_ url: URL, handler: @escaping(_ data: [[String:AnyObject]]?, _ success: Bool?, _ errorString: String?) -> Void) {
+    func taskWithURL(_ url: URL, handler: @escaping(_ data: [String:AnyObject]?, _ success: Bool?, _ errorString: String?) -> Void) {
         
         let request = URLRequest(url: url)
         let session = URLSession.shared
@@ -32,9 +32,9 @@ class PRClient: NSObject {
                 return
             }
             
-            let parsedData: [[String:AnyObject]]!
+            let parsedData: [String:AnyObject]!
             do {
-                parsedData = try? JSONSerialization.jsonObject(with: rawData, options: .allowFragments) as! [[String:AnyObject]]
+                parsedData = try? JSONSerialization.jsonObject(with: rawData, options: .allowFragments) as! [String:AnyObject]
             }
             
             handler(parsedData, true, nil)

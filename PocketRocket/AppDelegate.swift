@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = window?.rootViewController as! UITabBarController
         let tabBarRootViewControllers: Array = tabBarController.viewControllers!
         let nextLaunchView = tabBarRootViewControllers[0] as! ViewController
+        let tableViewController = tabBarRootViewControllers[1] as! PastLaunchesViewController
         
+        tableViewController.dataController = dataController
         nextLaunchView.dataController = dataController
         
         return true
