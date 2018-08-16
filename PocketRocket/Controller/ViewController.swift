@@ -37,20 +37,34 @@ class ViewController: UIViewController {
         
         //TODO: Add some sort of check to see if LaunchDate is the same before downloading new
         // Maybe do that in the retrieval task?
-        
-        fetchData()
-        if let missName = savedNextLaunchDetails[0].missionName {
-            print(missName)
+//        retrieveLaunches()
+        fetchData { (success) in
+            if success == true {
+                print("Data has been saved.")
+                self.missionName.text = self.savedNextLaunchDetails[0].missionName
+                self.launchSite.text = self.savedNextLaunchDetails[0].location
+                self.launchDate.text = self.savedNextLaunchDetails[0].launchDate
+                self.missionDetails.text = self.savedNextLaunchDetails[0].details
+            } else {
+                self.retrieveLaunches()
+                print("No data saved.")
+            }
         }
     }
     
-    func fetchData() {
+    func fetchData(handler: @escaping(_ success: Bool?)->Void) {
         let fetchRequest: NSFetchRequest<Launch> = Launch.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "launchDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         if let result = try? dataController.viewContext.fetch(fetchRequest) {
             savedNextLaunchDetails = result
-            print("Results count: \(result.count)")
+            if savedNextLaunchDetails.count == 0 {
+                print("Results count: \(result.count)")
+                handler(false)
+            } else {
+                handler(true)
+                print("Results count: \(result.count)")
+            }
         }
     }
     
