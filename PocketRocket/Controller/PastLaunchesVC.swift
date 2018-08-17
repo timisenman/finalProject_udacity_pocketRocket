@@ -30,20 +30,11 @@ class PastLaunchesViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewLaunchDetailsSegue" {
+        if segue.identifier == App.detailsSegue {
             let detailsVC = segue.destination as! PastLaunchDetailsVC
             detailsVC.selectedLaunch = sender as? Launch
         }
     }
-
-    
-    
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -52,7 +43,7 @@ class PastLaunchesViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: App.cellID, for: indexPath)
 
         let launch = savedLaunches[(indexPath as NSIndexPath).row]
         
@@ -65,7 +56,7 @@ class PastLaunchesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let launch = savedLaunches[indexPath.row]
-        performSegue(withIdentifier: "viewLaunchDetailsSegue", sender: launch)
+        performSegue(withIdentifier: App.detailsSegue, sender: launch)
         
     }
     

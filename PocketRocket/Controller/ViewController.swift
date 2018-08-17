@@ -63,8 +63,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func saveLaunchToCoreData() {
+    func saveLaunchToCoreData(launch: Launch) {
         //Where the context is currently saved, check to see if the newly requested launch is the same as the exisiting launch.
+//        if launch.launchDate == "" {
+//
+//        }
         //Save the new launch if it differs
         //Insert at 0
     }
@@ -94,12 +97,12 @@ class ViewController: UIViewController {
             }
             
             guard let missionNameData = flight[LaunchDetails.missionName] as? String else {
-                print("No rocket name on this bitch.")
+                print("No rocket name on this mofo.")
                 return
             }
             
             guard let launchSiteInfo = flight[LaunchDetails.launchSite] as? [String:AnyObject] else {
-                print("This shit took off from nowhere.")
+                print("This thing took off from nowhere.")
                 return
             }
             
@@ -109,12 +112,12 @@ class ViewController: UIViewController {
             }
             
             guard let rocketInfo = flight[LaunchDetails.rocket] as? [String:AnyObject] else {
-                print("This launch contained no rockets...")
+                print("This launch contained no rockets...?")
                 return
             }
             
             guard let rocketName = rocketInfo[LaunchDetails.rocketName] as? String else {
-                print("No mu' fuckin' name on this bitch.")
+                print("Ain't no name, mayne.")
                 return
             }
             

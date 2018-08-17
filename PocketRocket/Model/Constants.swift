@@ -33,6 +33,10 @@ struct LaunchDetails {
     static let launchSiteName = "site_name_long"
 }
 
-
+struct App {
+    static let detailsSegue = "viewLaunchDetailsSegue"
+    static let cellID = "missionCell"
+    
+}
 
 
