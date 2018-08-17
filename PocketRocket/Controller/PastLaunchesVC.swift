@@ -28,6 +28,13 @@ class PastLaunchesViewController: UITableViewController {
             savedLaunches = result
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewLaunchDetailsSegue" {
+            let detailsVC = segue.destination as! PastLaunchDetailsVC
+            detailsVC.selectedLaunch = sender as? Launch
+        }
+    }
 
     
     
@@ -56,6 +63,12 @@ class PastLaunchesViewController: UITableViewController {
         return cell
     }
     
-    //TODO: Insert Segue to Details View Controller
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let launch = savedLaunches[indexPath.row]
+        performSegue(withIdentifier: "viewLaunchDetailsSegue", sender: launch)
+        
+    }
+    
+    
+    
 }

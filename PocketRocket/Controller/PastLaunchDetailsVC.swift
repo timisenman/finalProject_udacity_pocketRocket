@@ -9,22 +9,37 @@
 import UIKit
 
 class PastLaunchDetailsVC: UIViewController {
+    
+    //The segued Launch
+    var selectedLaunch: Launch?
 
+    //Static Labels
+    @IBOutlet weak var whenLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
+    
+    //Dynamic Labels
+    @IBOutlet weak var launchTitle: UILabel!
+    @IBOutlet weak var launchDate: UILabel!
+    @IBOutlet weak var launchLocation: UITextView!
+    @IBOutlet weak var launchDetails: UITextView!
+    
+    //Buttons
+    @IBOutlet weak var dismissButtonOutlet: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        launchTitle.text = selectedLaunch?.missionName
+        launchDate.text = selectedLaunch?.launchDate
+        launchLocation.text = selectedLaunch?.location
+        launchDetails.text = selectedLaunch?.details
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func dismissDetails(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
 
 }
