@@ -35,9 +35,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: Add some sort of check to see if LaunchDate is the same before downloading new
-        // Maybe do that in the retrieval task?
-//        retrieveLaunches()
         fetchData { (success) in
             if success == true {
                 print("Data has been saved.")
@@ -59,13 +56,17 @@ class ViewController: UIViewController {
         if let result = try? dataController.viewContext.fetch(fetchRequest) {
             savedNextLaunchDetails = result
             if savedNextLaunchDetails.count == 0 {
-                print("Results count: \(result.count)")
                 handler(false)
             } else {
                 handler(true)
-                print("Results count: \(result.count)")
             }
         }
+    }
+    
+    func saveLaunchToCoreData() {
+        //Where the context is currently saved, check to see if the newly requested launch is the same as the exisiting launch.
+        //Save the new launch if it differs
+        //Insert at 0
     }
     
     func retrieveLaunches() {
@@ -78,11 +79,12 @@ class ViewController: UIViewController {
         PRClient.shared.taskWithURL(url!) { (data, success, error) in
             
             guard (error == nil) else {
-                fatalError(error ?? "Some error")
+                self.displayAlert(with: error ?? "Check your internet connection.")
+                return
             }
             
             guard let flight = data else {
-                print("This data is fucked.")
+                self.displayAlert(with: "This data is fucked. The server might be down.")
                 return
             }
             
@@ -141,6 +143,12 @@ class ViewController: UIViewController {
         formatter.timeStyle = .none
         let date = Date(timeIntervalSince1970: date)
         return formatter.string(from:date)
+    }
+    
+    func displayAlert(with message: String) {
+        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

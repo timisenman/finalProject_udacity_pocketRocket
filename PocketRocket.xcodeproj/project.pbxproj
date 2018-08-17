@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F810F808211C5B0100C763E4 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F810F807211C5B0100C763E4 /* CoreDataController.swift */; };
+		F83283D421272A6E001FC450 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83283D321272A6E001FC450 /* CustomTableViewCell.swift */; };
 		F86C440E2118030C00EF784E /* PastLaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C440D2118030C00EF784E /* PastLaunchesVC.swift */; };
 		F86C44102118035500EF784E /* PastLaunchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */; };
 		F8E31CFA21173DFB009FD4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		F810F807211C5B0100C763E4 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		F825BCD32119E5500086A8DC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = PocketRocket/MyPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F83283D2212725E8001FC450 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F83283D321272A6E001FC450 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = PocketRocket/View/CustomTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		F86C440D2118030C00EF784E /* PastLaunchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchesVC.swift; sourceTree = "<group>"; };
 		F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchDetailsVC.swift; sourceTree = "<group>"; };
 		F8E31CF621173DFB009FD4D2 /* PocketRocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketRocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,7 @@
 				F8E31CFB21173DFB009FD4D2 /* ViewController.swift */,
 				F86C440D2118030C00EF784E /* PastLaunchesVC.swift */,
 				F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */,
+				F83283D321272A6E001FC450 /* CustomTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +108,7 @@
 				F86C44142118125100EF784E /* Controller */,
 				F8E31D0521173DFD009FD4D2 /* LaunchScreen.storyboard */,
 				F8E31D0821173DFD009FD4D2 /* Info.plist */,
+				F83283D2212725E8001FC450 /* README.md */,
 			);
 			path = PocketRocket;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83283D421272A6E001FC450 /* CustomTableViewCell.swift in Sources */,
 				F8E31D1121174378009FD4D2 /* Constants.swift in Sources */,
 				F86C440E2118030C00EF784E /* PastLaunchesVC.swift in Sources */,
 				F8E31D0221173DFB009FD4D2 /* PocketRocket.xcdatamodeld in Sources */,
