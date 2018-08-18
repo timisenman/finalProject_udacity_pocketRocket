@@ -36,7 +36,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
         
         fetchData { (success) in
             if success == true {
@@ -64,14 +64,12 @@ class ViewController: UIViewController {
                 self.missionDetails.text = self.nextLaunch?.details
                 
             } else {
-                self.activityIndicator.isHidden = false
-                self.activityIndicator.startAnimating()
                 self.retrieveLaunches()
                 print("No data saved.")
             }
         }
         
-        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
         
     }
     
@@ -157,8 +155,6 @@ class ViewController: UIViewController {
             }
             
         }
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
         try? self.dataController.viewContext.save()
     }
     
