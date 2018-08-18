@@ -23,12 +23,12 @@ class PRClient: NSObject {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
-                print("Go fuck yourself, from the Client")
+                handler(nil, false, "Oh boy... Might need to check your connection, friend.")
                 return
             }
             
             guard let rawData = data else {
-                print("new data from Client")
+                handler(nil, false, "Data from the request seems to have an issue.")
                 return
             }
             

@@ -22,8 +22,7 @@
 
 /* Begin PBXFileReference section */
 		F810F807211C5B0100C763E4 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
-		F825BCD32119E5500086A8DC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = PocketRocket/MyPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F83283D2212725E8001FC450 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F83283D2212725E8001FC450 /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F86C440D2118030C00EF784E /* PastLaunchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchesVC.swift; sourceTree = "<group>"; };
 		F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchDetailsVC.swift; sourceTree = "<group>"; };
 		F8E31CF621173DFB009FD4D2 /* PocketRocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketRocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */,
-				F825BCD32119E5500086A8DC /* MyPlayground.playground */,
 				F86C44112118123600EF784E /* Model */,
 				F86C44132118124500EF784E /* View */,
 				F86C44142118125100EF784E /* Controller */,

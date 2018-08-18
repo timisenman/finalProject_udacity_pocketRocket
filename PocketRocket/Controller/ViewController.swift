@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var missionLabel: UILabel!
     @IBOutlet weak var launchSiteLabel: UILabel!
     @IBOutlet weak var detailsTextLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     // Data-driven UI
@@ -28,25 +29,50 @@ class ViewController: UIViewController {
     
 
     // Data Shit
-    var savedNextLaunchDetails: [Launch] = []
+    var savedLaunches: [Launch] = []
+    var nextLaunch: Launch?
     var dataController: DataController!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicator.isHidden = false
         
         fetchData { (success) in
             if success == true {
-                print("Data has been saved.")
-                self.missionName.text = self.savedNextLaunchDetails[0].missionName
-                self.launchSite.text = self.savedNextLaunchDetails[0].location
-                self.launchDate.text = self.savedNextLaunchDetails[0].launchDate
-                self.missionDetails.text = self.savedNextLaunchDetails[0].details
+                
+                for launch in self.savedLaunches {
+                    guard let nextLaunchDate = launch.launchDate else {
+                        fatalError()
+                    }
+                    
+                    if nextLaunchDate > Date() {
+                        self.nextLaunch = launch
+                        print("The next launch was used.")
+                    }
+                    
+                }
+                
+                guard let launchDate = self.nextLaunch?.launchDate else {
+                    print("Date unwrapping failed :/")
+                    return
+                }
+                
+                self.missionName.text = self.nextLaunch?.missionName
+                self.launchSite.text = self.nextLaunch?.location
+                self.launchDate.text = self.dateFormatter(launchDate)
+                self.missionDetails.text = self.nextLaunch?.details
+                
             } else {
+                self.activityIndicator.isHidden = false
+                self.activityIndicator.startAnimating()
                 self.retrieveLaunches()
                 print("No data saved.")
             }
         }
+        
+        self.activityIndicator.isHidden = true
+        
     }
     
     func fetchData(handler: @escaping(_ success: Bool?)->Void) {
@@ -54,22 +80,13 @@ class ViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "launchDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         if let result = try? dataController.viewContext.fetch(fetchRequest) {
-            savedNextLaunchDetails = result
-            if savedNextLaunchDetails.count == 0 {
+            savedLaunches = result
+            if savedLaunches.count == 0 {
                 handler(false)
             } else {
                 handler(true)
             }
         }
-    }
-    
-    func saveLaunchToCoreData(launch: Launch) {
-        //Where the context is currently saved, check to see if the newly requested launch is the same as the exisiting launch.
-//        if launch.launchDate == "" {
-//
-//        }
-        //Save the new launch if it differs
-        //Insert at 0
     }
     
     func retrieveLaunches() {
@@ -79,7 +96,11 @@ class ViewController: UIViewController {
         c.path = SpaceX.nextLaunch
         let url = c.url
         
+        
+        
         PRClient.shared.taskWithURL(url!) { (data, success, error) in
+            
+            
             
             guard (error == nil) else {
                 self.displayAlert(with: error ?? "Check your internet connection.")
@@ -91,7 +112,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            guard let launchDateData = flight[LaunchDetails.dateUnix] as? Int else {
+            guard let launchDateData = flight[LaunchDetails.dateUnix] as? Double else {
                 print("No launch date available here.")
                 return
             }
@@ -123,28 +144,28 @@ class ViewController: UIViewController {
             
             let launch = Launch(context: self.dataController.viewContext)
             launch.missionName = missionNameData
-            launch.launchDate = self.dateFormatter(TimeInterval(launchDateData))
+            launch.launchDate = (Date(timeIntervalSince1970:TimeInterval(launchDateData)))
             launch.details = "Rocket name: \(rocketName)\n"
             launch.location = launchSiteName
             launch.rocketName = rocketName
             
-//          Testing pure assignment of web request data
             DispatchQueue.main.async {
                 self.missionName.text = missionNameData
-                self.launchDate.text = self.dateFormatter(TimeInterval(launchDateData))
+                self.launchDate.text = self.dateFormatter(Date(timeIntervalSince1970: launchDateData))
                 self.missionDetails.text = "Rocket name: \(rocketName)\n"
                 self.launchSite.text = launchSiteName
             }
             
         }
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
         try? self.dataController.viewContext.save()
     }
     
-    func dateFormatter(_ date: TimeInterval) -> String {
+    func dateFormatter(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        let date = Date(timeIntervalSince1970: date)
         return formatter.string(from:date)
     }
     

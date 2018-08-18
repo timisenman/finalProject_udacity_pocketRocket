@@ -32,13 +32,20 @@ class PastLaunchDetailsVC: UIViewController {
         super.viewDidLoad()
 
         launchTitle.text = selectedLaunch?.missionName
-        launchDate.text = selectedLaunch?.launchDate
+        launchDate.text = self.dateFormatter((selectedLaunch?.launchDate)!)
         launchLocation.text = selectedLaunch?.location
         launchDetails.text = selectedLaunch?.details
     }
     
     @IBAction func dismissDetails(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func dateFormatter(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from:date)
     }
     
 

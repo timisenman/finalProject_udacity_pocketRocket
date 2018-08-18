@@ -48,7 +48,7 @@ class PastLaunchesViewController: UITableViewController {
         let launch = savedLaunches[(indexPath as NSIndexPath).row]
         
         if let name = launch.missionName, let date = launch.launchDate {
-            cell.textLabel?.text = "\(name) - \(date)"
+            cell.textLabel?.text = "\(name) - \(self.dateFormatter(date))"
         }
 
         return cell
@@ -60,6 +60,12 @@ class PastLaunchesViewController: UITableViewController {
         
     }
     
+    func dateFormatter(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from:date)
+    }
     
     
 }

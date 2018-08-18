@@ -100,6 +100,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jps-fa-Ip9">
+                                <rect key="frame" x="322" y="29" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -122,6 +126,7 @@
                             <constraint firstItem="hlz-eK-jlm" firstAttribute="top" secondItem="5CN-Uo-OdO" secondAttribute="bottom" constant="-1" id="ZO1-yG-xE1"/>
                             <constraint firstItem="p05-rh-BhN" firstAttribute="top" secondItem="5CN-Uo-OdO" secondAttribute="bottom" constant="53" id="bFM-PH-HwD"/>
                             <constraint firstItem="47O-aK-nFi" firstAttribute="trailing" secondItem="Qie-Ya-9zW" secondAttribute="trailing" id="bkT-b1-LRR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jps-fa-Ip9" secondAttribute="trailing" constant="16" id="elr-us-Qmt"/>
                             <constraint firstItem="5CN-Uo-OdO" firstAttribute="top" secondItem="47O-aK-nFi" secondAttribute="bottom" constant="46" id="fCi-Y6-FDD"/>
                             <constraint firstItem="h3s-fP-df0" firstAttribute="trailing" secondItem="sGM-s6-sBU" secondAttribute="trailing" id="g5e-Np-wUd"/>
                             <constraint firstItem="47O-aK-nFi" firstAttribute="top" secondItem="sGM-s6-sBU" secondAttribute="bottom" constant="65" id="krO-lV-3aS"/>
@@ -135,6 +140,7 @@
                             <constraint firstItem="Olf-ai-kWb" firstAttribute="top" secondItem="p05-rh-BhN" secondAttribute="bottom" constant="-1" id="tNF-Tt-xlc"/>
                             <constraint firstItem="ZEm-pI-IKE" firstAttribute="top" secondItem="sGM-s6-sBU" secondAttribute="bottom" constant="-1" id="ttp-h3-C92"/>
                             <constraint firstItem="ZEm-pI-IKE" firstAttribute="top" secondItem="h3s-fP-df0" secondAttribute="bottom" constant="52" id="tw1-wb-ecy"/>
+                            <constraint firstItem="jps-fa-Ip9" firstAttribute="top" secondItem="h3s-fP-df0" secondAttribute="bottom" constant="-45" id="ueX-1z-4sb"/>
                             <constraint firstItem="Qie-Ya-9zW" firstAttribute="trailing" secondItem="5CN-Uo-OdO" secondAttribute="trailing" id="v7H-rQ-ZYV"/>
                             <constraint firstItem="47O-aK-nFi" firstAttribute="top" secondItem="ZEm-pI-IKE" secondAttribute="bottom" constant="25" id="wkQ-ZG-ZlH"/>
                             <constraint firstItem="hlz-eK-jlm" firstAttribute="trailing" secondItem="p05-rh-BhN" secondAttribute="trailing" id="zWw-mL-aVz"/>
@@ -142,10 +148,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="96E-S3-y8f">
+                    <tabBarItem key="tabBarItem" selectedImage=" " systemItem="featured" id="96E-S3-y8f">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="jps-fa-Ip9" id="O6L-M1-58a"/>
                         <outlet property="detailsTextLabel" destination="p05-rh-BhN" id="QbM-Ia-7wM"/>
                         <outlet property="launchDate" destination="Qie-Ya-9zW" id="tpa-vi-iwU"/>
                         <outlet property="launchSite" destination="hlz-eK-jlm" id="Dwd-fW-sNK"/>
@@ -194,7 +201,7 @@
                             <outlet property="delegate" destination="Ckm-r0-Q8z" id="vwy-a6-0kA"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="a5U-Ci-o2i">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="a5U-Ci-o2i">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -325,4 +332,7 @@
             <point key="canvasLocation" x="958" y="544"/>
         </scene>
     </scenes>
+    <resources>
+        <image name=" " width="16" height="16"/>
+    </resources>
 </document>
