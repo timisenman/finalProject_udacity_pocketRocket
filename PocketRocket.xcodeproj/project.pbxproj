@@ -11,7 +11,7 @@
 		F86C440E2118030C00EF784E /* PastLaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C440D2118030C00EF784E /* PastLaunchesVC.swift */; };
 		F86C44102118035500EF784E /* PastLaunchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */; };
 		F8E31CFA21173DFB009FD4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */; };
-		F8E31CFC21173DFB009FD4D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E31CFB21173DFB009FD4D2 /* ViewController.swift */; };
+		F8E31CFC21173DFB009FD4D2 /* NextLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E31CFB21173DFB009FD4D2 /* NextLaunchViewController.swift */; };
 		F8E31CFF21173DFB009FD4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E31CFD21173DFB009FD4D2 /* Main.storyboard */; };
 		F8E31D0221173DFB009FD4D2 /* PocketRocket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8E31D0021173DFB009FD4D2 /* PocketRocket.xcdatamodeld */; };
 		F8E31D0421173DFD009FD4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E31D0321173DFD009FD4D2 /* Assets.xcassets */; };
@@ -27,7 +27,7 @@
 		F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLaunchDetailsVC.swift; sourceTree = "<group>"; };
 		F8E31CF621173DFB009FD4D2 /* PocketRocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketRocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E31CF921173DFB009FD4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8E31CFB21173DFB009FD4D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8E31CFB21173DFB009FD4D2 /* NextLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLaunchViewController.swift; sourceTree = "<group>"; };
 		F8E31CFE21173DFB009FD4D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8E31D0121173DFB009FD4D2 /* PocketRocket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketRocket.xcdatamodel; sourceTree = "<group>"; };
 		F8E31D0321173DFD009FD4D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		F86C44142118125100EF784E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F8E31CFB21173DFB009FD4D2 /* ViewController.swift */,
+				F8E31CFB21173DFB009FD4D2 /* NextLaunchViewController.swift */,
 				F86C440D2118030C00EF784E /* PastLaunchesVC.swift */,
 				F86C440F2118035500EF784E /* PastLaunchDetailsVC.swift */,
 			);
@@ -183,7 +183,7 @@
 				F86C440E2118030C00EF784E /* PastLaunchesVC.swift in Sources */,
 				F8E31D0221173DFB009FD4D2 /* PocketRocket.xcdatamodeld in Sources */,
 				F86C44102118035500EF784E /* PastLaunchDetailsVC.swift in Sources */,
-				F8E31CFC21173DFB009FD4D2 /* ViewController.swift in Sources */,
+				F8E31CFC21173DFB009FD4D2 /* NextLaunchViewController.swift in Sources */,
 				F8E31D0F21173E42009FD4D2 /* Client.swift in Sources */,
 				F810F808211C5B0100C763E4 /* CoreDataController.swift in Sources */,
 				F8E31CFA21173DFB009FD4D2 /* AppDelegate.swift in Sources */,

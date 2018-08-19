@@ -11,9 +11,9 @@ import Foundation
 import CoreData
 
 
-class ViewController: UIViewController {
+class NextLaunchViewController: UIViewController {
     
-    // Static UI
+    //MARK: Static UI
     @IBOutlet weak var nextLaunchTitle: UILabel!
     @IBOutlet weak var missionLabel: UILabel!
     @IBOutlet weak var launchSiteLabel: UILabel!
@@ -21,22 +21,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
-    // Data-driven UI
+    //MARK: Data-driven UI
     @IBOutlet weak var launchDate: UILabel!
     @IBOutlet weak var missionName: UILabel!
     @IBOutlet weak var missionDetails: UITextView!
     @IBOutlet weak var launchSite: UITextView!
     
 
-    // Data Shit
+    //MARK: Data Variables
     var savedLaunches: [Launch] = []
     var nextLaunch: Launch?
     var dataController: DataController!
     
-
+    //MARK: App Startup Behavior
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activityIndicator.startAnimating()
         
         fetchData { (success) in
             if success == true {
@@ -62,17 +61,16 @@ class ViewController: UIViewController {
                 self.launchSite.text = self.nextLaunch?.location
                 self.launchDate.text = self.dateFormatter(launchDate)
                 self.missionDetails.text = self.nextLaunch?.details
+                self.activityIndicator.stopAnimating()
                 
             } else {
                 self.retrieveLaunches()
                 print("No data saved.")
             }
         }
-        
-        self.activityIndicator.stopAnimating()
-        
     }
     
+    //MARK: CoreData Login
     func fetchData(handler: @escaping(_ success: Bool?)->Void) {
         let fetchRequest: NSFetchRequest<Launch> = Launch.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "launchDate", ascending: false)
@@ -87,6 +85,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: Network Request Logic
     func retrieveLaunches() {
         var c = URLComponents()
         c.host = SpaceX.host
@@ -94,15 +93,17 @@ class ViewController: UIViewController {
         c.path = SpaceX.nextLaunch
         let url = c.url
         
-        
-        
+        self.activityIndicator.startAnimating()
+
         PRClient.shared.taskWithURL(url!) { (data, success, error) in
-            
-            
             
             guard (error == nil) else {
                 self.displayAlert(with: error ?? "Check your internet connection.")
                 return
+            }
+            
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
             }
             
             guard let flight = data else {
@@ -111,7 +112,7 @@ class ViewController: UIViewController {
             }
             
             guard let launchDateData = flight[LaunchDetails.dateUnix] as? Double else {
-                print("No launch date available here.")
+                self.displayAlert(with: "No launch date available here.")
                 return
             }
             
@@ -152,12 +153,14 @@ class ViewController: UIViewController {
                 self.launchDate.text = self.dateFormatter(Date(timeIntervalSince1970: launchDateData))
                 self.missionDetails.text = "Rocket name: \(rocketName)\n"
                 self.launchSite.text = launchSiteName
+                self.activityIndicator.stopAnimating()
             }
-            
         }
         try? self.dataController.viewContext.save()
     }
     
+    
+    //MARK: Presentation Functionality
     func dateFormatter(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
