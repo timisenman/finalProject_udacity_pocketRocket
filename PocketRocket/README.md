@@ -11,5 +11,6 @@ With Pocket Rocket, you'll immediately see the upcoming launch information of Sp
 ### Support
 If this thing breaks at all, please email me @ tim[dot]isenman[@]gmail.com 🙏🏼
 
-_This app takes advantage of this API developed by Reddit's r/SpaceX subreddit: https://github.com/r-spacex/SpaceX-API/blob/master/docs/launches.md_
+_This app takes advantage of this API developed by Reddit's r/SpaceX subreddit: https://github.com/r-spacex/SpaceX-API/
+_Documentation for this API can be found here: https://documenter.getpostman.com/view/2025350/RWaEzAiG#e001c501-9c09-4703-9e29-f91fbbf8db7c
 
